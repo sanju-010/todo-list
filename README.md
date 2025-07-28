@@ -2,7 +2,7 @@
 
 A simple, mobile-friendly **Progressive Web App (PWA)** ToDo List with Firebase authentication, task management, calendar view, dark mode, and offline support. Built using HTML, CSS, and JavaScript.
 
-🔗 **Live Site**: [sanju-010.github.io/To-do-list](https://sanju-010.github.io/To-do-list)
+🔗 **Live Site**: 
 
 ## ✨ Features
 
@@ -31,7 +31,7 @@ A simple, mobile-friendly **Progressive Web App (PWA)** ToDo List with Firebase 
 
 1. **Clone the repository**
    ```bash
-   git clone https://github.com/sanju-010/To-do-list.git
+   git clone https://github.com/sanju-010/todo-list.git
    cd To-do-list
    ```
 2. Open in Live Server
