@@ -1,0 +1,25 @@
+<!-- register.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Register</title>
+  <script type="module" src="./js/auth.js" defer></script>
+  <link rel="stylesheet" href="./css/styles.css">
+</head>
+<body>
+  <div class="auth-container">
+    <h2>Register</h2>
+    <input type="email" id="registerEmail" placeholder="Email" />
+    <input type="password" id="registerPassword" placeholder="Password" />
+    <button id="registerBtn">Register</button>
+    <p>Already have an account? <a href="login.html">Login here</a></p>
+  </div>
+
+  <script type="module">
+  import { redirectIfLoggedIn } from './js/authGuard.js';
+  redirectIfLoggedIn(); // If already logged in, go to index.html
+</script>
+
+</body>
+</html>

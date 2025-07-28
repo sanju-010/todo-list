@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <title>Completed Tasks</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="icon" href="./favicon.ico" type="image/x-icon" />
+  <link rel="stylesheet" href="./css/styles.css" />
+</head>
+
+<body class="light">
+  <!-- 🔝 Simple Header -->
+  <header class="sticky-header">
+    <div class="header-main">
+      <h1>Completed Tasks</h1>
+    </div>
+  </header>
+
+  <!-- ✅ Completed Task List -->
+  <main id="completedTaskListContainer">
+    <!-- Completed tasks will be injected here -->
+  </main>
+
+  <!-- ✅ Bottom Navigation -->
+    <nav class="bottom-nav">
+        <a href="index.html" title="Home">🏠</a>
+        <button id="addTaskBtn">➕</button>
+        <a href="calendar.html">🗓</a>
+        <a href="completed.html">✅</a>
+        <button id="darkModeToggle">🌙</button>
+    </nav>
+
+  <!-- Scripts -->
+  <script type="module">
+    import { requireAuth } from './js/authGuard.js';
+    requireAuth();
+  </script>
+
+  <script type="module" src="./js/completed.js"></script>
+  <script type="module" src="./js/darkmode.js"></script>
+</body>
+
+</html>

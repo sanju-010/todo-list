@@ -1,0 +1,71 @@
+<!-- index.html -->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <title>My ToDo App</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" href="./favicon.ico" type="image/x-icon" />
+    <link rel="manifest" href="manifest.json" />
+    <link rel="stylesheet" href="./css/styles.css" />
+</head>
+
+<body class="light">
+
+    <!-- 🔝 Sticky Header with just title -->
+    <header class="sticky-header">
+        <div class="header-main">
+            <h1>My Tasks</h1>
+        </div>
+    </header>
+
+    <!-- 📋 Task List Section -->
+    <main id="taskListContainer">
+        <!-- Tasks will be injected here -->
+    </main>
+
+    <!-- ➕ Add Task Modal -->
+    <div id="addTaskModal" class="modal hidden">
+        <div class="modal-content">
+            <h2>Add New Task</h2>
+            <input type="text" id="taskName" placeholder="Task Name" />
+            <textarea id="taskDescription" placeholder="Description"></textarea>
+            <input type="date" id="taskDeadline" />
+            <div class="modal-actions">
+                <button id="cancelAddTask">Cancel</button>
+                <button id="submitAddTask">Add</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- ✅ Toast Message -->
+    <div id="toast" class="toast hidden"></div>
+
+    <!-- ✅ Bottom Navigation Bar -->
+    <nav class="bottom-nav">
+        <button id="addTaskBtn">➕</button>
+        <a href="calendar.html">🗓</a>
+        <a href="completed.html">✅</a>
+        <button id="darkModeToggle">🌙</button>
+    </nav>
+    <!-- PWA Install Button -->
+    <button id="installBtn" class="install-btn hidden">📲 Install App</button>
+
+    <!-- Scripts -->
+    <script type="module">
+        import { requireAuth } from './js/authGuard.js';
+        requireAuth();
+    </script>
+    <script>
+        history.pushState(null, "", location.href);
+        window.onpopstate = () => history.pushState(null, "", location.href);
+    </script>
+    <script type="module" src="./js/tasks.js"></script>
+    <script type="module" src="./js/darkmode.js"></script>
+    <script type="module" src="./js/install.js"></script>
+
+</body>
+
+
+</html>

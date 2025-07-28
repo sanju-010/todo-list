@@ -1,0 +1,452 @@
+/* 🔁 RESET */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+:root {
+  --color-background: #F9F7F7;
+  --color-surface: #DBE2EF;
+  --color-primary: #3F72AF;
+  --color-accent: #112D4E;
+  --color-text: #112D4E;
+}
+
+body {
+  font-family: sans-serif;
+  background-color: #f5f5f5;
+  color: var(--color-accent);
+  min-height: 100vh;
+  /* padding-top: 60px; */
+  font-size: 16px;
+}
+a {
+  color: var(--color-accent);
+  text-decoration: none;
+}
+@media (max-width: 480px) {
+  body { font-size: 15px; }
+}
+
+/* 🧾 Auth Form */
+.auth-container {
+  max-width: 400px;
+  margin: 10vh auto;
+  padding: 2rem;
+  border: 1px solid #ccc;
+  border-radius: 12px;
+  text-align: center;
+}
+input, textarea {
+  display: block;
+  width: 100%;
+  /* margin: 1rem 0; */
+  /* padding: 0.5rem; */
+  border: 1px solid #ccc;
+  border-radius: 6px;
+}
+button {
+  padding: 0.6rem 1.2rem;
+  background: #3b82f6;
+  color: var(--color-background);
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+}
+button:hover {
+  opacity: 0.9;
+}
+
+/* 📌 Sticky Header */
+.sticky-header {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: #f8f9fa;
+  padding: 10px 15px;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  border-bottom: 1px solid #ccc;
+}
+.header-main {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-top: 10px;
+}
+.sticky-header h1 {
+  font-size: 1.5rem;
+}
+.home-link {
+  text-decoration: none;
+  color: inherit;
+}
+.home-link h1 {
+  cursor: pointer;
+}
+
+@media (max-width: 480px) {
+  .sticky-header h1 {
+    font-size: 1.2rem;
+  }
+}
+
+/* 🍔 Hamburger Menu */
+#menuToggle {
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+.hamburger {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 24px;
+  height: 18px;
+  padding: 0;
+}
+.hamburger span {
+  display: block;
+  height: 3px;
+  width: 100%;
+  background: #000;
+  border-radius: 3px;
+  transition: all 0.3s ease;
+}
+.hamburger.active span:nth-child(1) {
+  transform: rotate(45deg) translate(5px, 5px);
+}
+.hamburger.active span:nth-child(2) {
+  opacity: 0;
+}
+.hamburger.active span:nth-child(3) {
+  transform: rotate(-45deg) translate(5px, -5px);
+}
+
+/* 🧭 Header Buttons */
+.header-buttons {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-top: 10px;
+  max-height: 0;
+  overflow: hidden;
+  opacity: 0;
+  transform: scaleY(0);
+  transform-origin: top;
+  transition: all 0.3s ease;
+  color: var(--color-background);
+}
+.header-buttons.show {
+  max-height: 500px;
+  opacity: 1;
+  transform: scaleY(1);
+}
+.header-buttons button,
+.header-buttons a {
+  font-size: 0.9rem;
+  padding: 8px 12px;
+  border-radius: 6px;
+  background: var(--color-text);
+  color: var(--color-background);
+  text-decoration: none;
+  white-space: nowrap;
+}
+
+/* 📋 Task Display */
+.date-group {
+  margin: 10px;
+  padding: 10px 12px;
+  /* border-left: 4px solid #2563eb; */
+  background: var(--color-primary);
+  border-radius: 8px;
+}
+.date-group h3 {
+  margin-bottom: 10px;
+}
+.task-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  flex-wrap: wrap;
+  gap: 8px;
+  padding: 6px 0;
+  border-bottom: 1px dashed #ccc;
+}
+.task-name {
+  font-weight: bold;
+  color: var(--color-background);
+}
+.task-item p {
+  width: 100%;
+  font-size: 0.9rem;
+  margin-top: 4px;
+}
+.task-strike {
+  text-decoration: line-through;
+  opacity: 0.6;
+}
+.flex{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+}
+.task-name span{
+    width: 90%;
+}
+.task-name input{
+    width: 10%;
+}
+.desc-name span:first-child {
+  width: 70%;
+  color: var(--color-background);
+}
+.desc-name span:last-child {
+  width: 30%;
+  color: var(--color-background);
+}
+
+/* 🧾 Modal */
+.modal {
+  position: fixed;
+  inset: 0;
+  background-color: rgba(0,0,0,0.6);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.modal.hidden {
+  display: none;
+}
+.modal-content {
+  background: white;
+  padding: 20px;
+  width: 95%;
+  max-width: 400px;
+  border-radius: 12px;
+}
+.modal-content h2 {
+  font-size: 1.2rem;
+}
+.modal-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+}
+
+
+
+/* Tost alert */
+.toast {
+  position: fixed;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: #2563eb;
+  color: var(--color-background);
+  padding: 12px 20px;
+  border-radius: 6px;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+  opacity: 0;
+  transition: opacity 0.3s ease, transform 0.3s ease;
+  z-index: 1000;
+}
+
+.toast.show {
+  opacity: 1;
+  transform: translateX(-50%) translateY(0);
+}
+
+.toast.hidden {
+  display: none;
+}
+
+
+/* 🌙 Dark Mode */
+body.dark {
+  background: #121212;
+  color: var(--color-background);
+}
+body.dark .sticky-header {
+  background: #1f1f1f;
+}
+body.dark .modal-content {
+  background: #2a2a2a;
+  color: var(--color-background);
+}
+body.dark .date-group {
+  background: #1e1e1e;
+}
+
+
+.bottom-nav {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: var(--color-surface, #DBE2EF);
+  border-top: 1px solid #ccc;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  padding: 8px 0;
+  z-index: 100;
+}
+
+.bottom-nav a,
+.bottom-nav button {
+  background: none;
+  border: none;
+  font-size: 1.3rem;
+  cursor: pointer;
+  color: var(--color-text, #112D4E);
+}
+
+.bottom-nav a:hover,
+.bottom-nav button:hover {
+  opacity: 0.7;
+}
+
+body {
+  padding-bottom: 60px; /* Prevent content behind nav */
+}
+
+/* Calendar layout */
+.calendar-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem;
+  background: var(--clr-bg);
+  border-bottom: 1px solid var(--clr-light);
+}
+
+.calendar-header h2 {
+  margin: 0;
+  font-size: 1.5rem;
+  color: var(--clr-dark);
+}
+
+.calendar-header button {
+  background: var(--clr-accent);
+  color: white;
+  border: none;
+  padding: 6px 10px;
+  font-size: 1rem;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.calendar-header button:hover {
+  opacity: 0.9;
+}
+
+/* Calendar grid */
+.calendar {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 6px;
+  padding: 1rem;
+  background: var(--clr-bg);
+}
+
+.day {
+  padding: 12px 6px;
+  background: var(--clr-light);
+  text-align: center;
+  border-radius: 6px;
+  cursor: pointer;
+  position: relative;
+  font-weight: 500;
+  color: var(--clr-dark);
+  min-height: 60px;
+}
+
+.day.today {
+  border: 2px solid var(--clr-accent);
+  font-weight: bold;
+  background: white;
+}
+
+.day .count {
+  font-size: 0.7rem;
+  color: var(--clr-dark);
+  position: absolute;
+  bottom: 4px;
+  right: 6px;
+  background: var(--clr-bg);
+  border-radius: 50%;
+  padding: 2px 6px;
+}
+
+/* Empty padding cells */
+.empty {
+  visibility: hidden;
+}
+
+/* Task list */
+#taskList {
+  padding: 1rem;
+  background: var(--clr-bg);
+}
+
+#selectedDate {
+  font-weight: bold;
+  color: var(--clr-accent);
+}
+
+.task-item {
+  padding: 8px 10px;
+  margin-bottom: 6px;
+  background: var(--clr-bg);
+  border-left: 4px solid var(--clr-accent);
+  border-radius: 4px;
+  color: var(--clr-dark);
+  box-shadow: 0 1px 2px rgba(0,0,0,0.05);
+}
+
+.task-item strong {
+  display: block;
+  font-size: 1rem;
+  margin-bottom: 2px;
+}
+
+.task-item small {
+  font-size: 0.85rem;
+  color: #555;
+}
+
+
+/* install butotn style */
+/* Keyframes for zoom-in and zoom-out */
+/* Continuous pulse animation */
+@keyframes zoomPulse {
+  0%, 100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.2);
+  }
+}
+
+.install-btn {
+  position: fixed;
+  bottom: 6rem;
+  right: 2rem;
+  padding: 12px 16px;
+  background-color: #3F72AF;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  font-weight: bold;
+  cursor: pointer;
+  z-index: 1000;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  animation: zoomPulse 0.5s ease-in-out infinite;
+  transition: background-color 0.3s;
+}
+
+.install-btn:hover {
+  background-color: #112D4E;
+}
+
